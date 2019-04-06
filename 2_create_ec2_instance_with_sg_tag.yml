@@ -1,0 +1,22 @@
+---
+ - name: This play is used to create ec2 instance/s using SGs ang Tags
+   hosts: localhost
+   connection: local
+   gather_facts: false
+   tasks:
+   - name: Creating ec2 instance
+     ec2:
+      instance_type: t1.micro
+      image: ami-011b3ccf1bd6db744
+      count: 1
+      key_name: ansible_key
+      region: us-east-1
+      wait: yes 
+      #group: DoWithPython
+      #group_id: sg-00fe30710bcfff987
+      #group_id: [ 'sg-00fe30710bcfff987','sg-0010cd50d200cfa69']
+      group_id:
+        - sg-00fe30710bcfff987
+        - sg-0010cd50d200cfa69
+      instance_tags:
+        Name: start_stop_terminate_instance

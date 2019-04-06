@@ -1,0 +1,11 @@
+---
+ - name: Launching aws ec2 instance
+   hosts: localhost
+   gather_facts: false
+   tasks:
+   - name: Launching ec2 instance with ec2 module 
+     ec2:
+      instance_type: t2.micro
+      image: ami-011b3ccf1bd6db744
+      key_name: ansible_key
+      region: us-east-1
