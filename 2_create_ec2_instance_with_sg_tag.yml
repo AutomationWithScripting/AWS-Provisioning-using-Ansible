@@ -8,7 +8,7 @@
      ec2:
       instance_type: t1.micro
       image: ami-011b3ccf1bd6db744
-      count: 1
+      count: 2
       key_name: ansible_key
       region: us-east-1
       wait: yes 
@@ -19,4 +19,4 @@
         - sg-00fe30710bcfff987
         - sg-0010cd50d200cfa69
       instance_tags:
-        Name: start_stop_terminate_instance
+        Env: test

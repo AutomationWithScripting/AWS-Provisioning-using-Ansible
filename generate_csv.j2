@@ -1,0 +1,6 @@
+{% set s_no = 1 %}
+S.NO,Instance_Id,Image_Id,Key_Name
+{% for each in out.instances %}
+{{s_no}},{{each.instance_id}},{{each.image_id}},{{each.key_name}}
+{% set s_no = s_no + 1 %}
+{% endfor %}
